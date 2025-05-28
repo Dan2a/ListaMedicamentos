@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Medicamentos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Lista de Medicamentos</h1>
+            <div class="btnHeader">
+                <button onclick="abrirModal()" class="btnAdd" id="new">Adicionar Medicamento</button> 
+                <button onclick="abrirBar()" class="btnAdd" id="consult">Consultar ANVISA</button> 
+            </div>
+        </header>
+
+        <!-- Botão de pesquisa -->
+        <section class="searchContainer">
+            <div class="search">
+                <label for="pesquisaMedicamento">Pesquisar Medicamento</label>
+                <input type="text" id="pesquisaMedicamento" placeholder="Medicamento" aria-describedby="Medicamento">
+                <button type="button" id="btnPesquisarMedicamento">Pesquisar</button>
+            </div>
+            <ul id="sugestoes" class="sugestoesLista"></ul>
+        </section>
+
+        <!-- Lista de Medicamentos -->
+        <section class="divTable">
+            <table>
+                <caption>Lista de Medicamentos Cadastrados</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">N°</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Principio Ativo</th>
+                        <th scope="col">Fabricante</th>
+                        <th scope="col" class="acao">Editar</th>
+                        <th scope="col" class="acao">Excluir</th>
+                    </tr>
+                </thead>
+                <tbody id="MedicamentosTabela"></tbody>
+            </table>
+        </section>
+
+        <!-- Modal de adicionar medicamentos -->
+        <div class="modalContainer" id="modalMedicamento" role="dialog" aria-labelledby="modalMedicamentoTitle">
+            <div class="modal">
+                <button class="fechar" aria-label="Fechar" onclick="fecharModal()">
+                    <i class='bx bx-x'></i>
+                </button>
+                <h2 id="modalMedicamentoTitle">Adicionar Medicamento</h2>
+                <form id="formMedicamento">
+                    <input type="hidden" id="idMedicamento">
+
+                    <label for="numero">N°</label>
+                    <input class="modalInput"type="text" id="numero" name="numero" required>
+
+                    <label for="nome">Nome</label>
+                    <input class="modalInput" type="text" id="nome" name="nome" required>
+    
+                    <label for="PricipioAtivo">Pricipio Ativo</label>
+                    <input class="modalInput" type="text" id="PricipioAtivo" name="PricipioAtivo" required>
+    
+                    <label for="Fabricante">Fabricante</label>
+                    <input class="modalInput" type="text" id="Fabricante" name="Fabricante" required>
+    
+                    <button class="btnModal" type="submit" id="btnSalvar">Salvar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- SideBar de consulta de medicamentos API -->
+        <div class="sidebarContainer" id="sidebar">
+            <button class="fecharSidebar" aria-label="Fechar" onclick="fecharBar()">
+                <i class='bx bx-x'></i>
+            </button>
+            <h2>Consultar Medicamentos</h2>
+            <div class="searchSidebar">
+                <input type="text" id="pesquisaSidebar" placeholder="Nome do medicamento">
+                <button type="button" id="btnPesquisarSidebar">Pesquisar</button>
+            </div>
+            <ul id="resultadosSidebar" class="resultadosLista"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
