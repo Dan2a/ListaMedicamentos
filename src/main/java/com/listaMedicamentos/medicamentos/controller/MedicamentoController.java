@@ -1,9 +1,9 @@
 package com.listaMedicamentos.medicamentos.controller;
 
 import com.listaMedicamentos.medicamentos.entity.Medicamento;
-import com.listaMedicamentos.medicamentos.repository.MedicamentoRepository;
 import com.listaMedicamentos.medicamentos.service.MedicamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,4 +34,11 @@ public class MedicamentoController {
     public  void deletar(@PathVariable Long id){
         medicamentoService.deletar(id);
     }
+
+    @GetMapping("/filtro")
+    public ResponseEntity<List<Medicamento>> filtrarPorNome(@RequestParam String nome) {
+        List<Medicamento> resultado = medicamentoService.filtrarPorNome(nome);
+        return ResponseEntity.ok(resultado);
+    }
+
 }

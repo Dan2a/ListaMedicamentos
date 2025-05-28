@@ -28,4 +28,8 @@ public class MedicamentoService {
     public void deletar(Long id){
         medicamentoRepository.deleteById(id);
     }
+
+    public List<Medicamento> filtrarPorNome(String nome){
+        return  medicamentoRepository.findByNomeContainingIgnoreCase(nome);
+    }
 }

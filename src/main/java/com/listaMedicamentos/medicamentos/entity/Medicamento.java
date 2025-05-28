@@ -3,8 +3,10 @@ package com.listaMedicamentos.medicamentos.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -22,6 +24,9 @@ public class Medicamento {
     @NotBlank(message = "Fabricante Obrigatorio")
     private String fabricante;
 
-    private LocalDate dataCadastro;
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime dataCadastro;
+
 
 }
