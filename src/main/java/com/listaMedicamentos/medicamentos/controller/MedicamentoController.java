@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/medicamentos")
 public class MedicamentoController {
 
@@ -23,6 +24,12 @@ public class MedicamentoController {
     @PostMapping("/salvar")
     public Medicamento criar(@RequestBody Medicamento medicamento){
         return medicamentoService.salvar(medicamento);
+    }
+
+    @PutMapping
+    public Medicamento atualizar(@PathVariable Long id, @RequestBody Medicamento medicamento) {
+        medicamento.setId(id);
+        return medicamentoService.atualizar(medicamento);
     }
 
     @GetMapping("/{id}")

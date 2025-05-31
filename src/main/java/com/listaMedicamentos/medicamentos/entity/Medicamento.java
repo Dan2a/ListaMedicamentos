@@ -3,6 +3,7 @@ package com.listaMedicamentos.medicamentos.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
@@ -13,7 +14,8 @@ import java.time.LocalDateTime;
 public class Medicamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Getter
+    private long id;
 
     @NotBlank(message = "Nome Obrigatorio")
     private String nome;

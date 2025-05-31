@@ -32,4 +32,12 @@ public class MedicamentoService {
     public List<Medicamento> filtrarPorNome(String nome){
         return  medicamentoRepository.findByNomeContainingIgnoreCase(nome);
     }
+
+    public Medicamento atualizar(Medicamento medicamento) {
+        Medicamento existente = buscarPorId(medicamento.getId());
+        existente.setNome(medicamento.getNome());
+        existente.setPrincipioAtivo(medicamento.getPrincipioAtivo());
+        existente.setFabricante(medicamento.getFabricante());
+        return  medicamentoRepository.save(existente);
+    }
 }
