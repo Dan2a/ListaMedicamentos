@@ -26,7 +26,7 @@ public class MedicamentoController {
         return medicamentoService.salvar(medicamento);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public Medicamento atualizar(@PathVariable Long id, @RequestBody Medicamento medicamento) {
         medicamento.setId(id);
         return medicamentoService.atualizar(medicamento);
