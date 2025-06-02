@@ -1,113 +1,118 @@
 const BASE_URL = 'http://localhost:8080/medicamentos';
-document.addEventListener('DOMContentLoaded', listarMedicamentos);
 
+let medicamentosSimulados = [];
 
-function listarMedicamentos() {
-    fetch(`${BASE_URL}/listar`, {cache: "no-store"})
-        .then(response => response.json())
-        .then(medicamentos => {
-            const tabela = document.getElementById('MedicamentosTabela');
-            tabela.innerHTML = '';
-            medicamentos.forEach((medicamento, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${medicamento.nome}</td>
-                    <td>${medicamento.principioAtivo || ''}</td>
-                    <td>${medicamento.fabricante}</td>
-                    <td class="acao"><button onclick="editarMedicamento(${medicamento.id})">Editar</button></td>
-                    <td class="acao"><button onclick="deletarMedicamento(${medicamento.id})">Excluir</button></td>
-                `;
-                tabela.appendChild(row);
-            });
-        })
-        .catch(error => console.error('Erro ao listar:', error));
+document.addEventListener('DOMContentLoaded', () => {
+    listarMedicamentos();
+    configurarEventos();
+    carregarMedicamentosSimulados();
+});
+
+// Função para carregar medicamentos simulados
+async function carregarMedicamentosSimulados() {
+    try {
+        const response = await fetch('/medicamentos_simulados.json');
+        medicamentosSimulados = await response.json();
+    } catch (error) {
+        console.error('Erro ao carregar medicamentos simulados:', error);
+    }
 }
 
-document.getElementById('formMedicamento').addEventListener('submit', function(event) {
+// Funções de Listagem
+async function listarMedicamentos() {
+    try {
+        const response = await fetch(`${BASE_URL}/listar`, { cache: "no-store" });
+        const medicamentos = await response.json();
+        atualizarTabela(medicamentos);
+    } catch (error) {
+        console.error('Erro ao listar:', error);
+    }
+}
+
+function atualizarTabela(medicamentos) {
+    const tabela = document.getElementById('MedicamentosTabela');
+    tabela.innerHTML = '';
+
+    medicamentos.forEach((medicamento, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${medicamento.nome}</td>
+            <td>${medicamento.principioAtivo || ''}</td>
+            <td>${medicamento.fabricante}</td>
+            <td class="acao"><button onclick="editarMedicamento(${medicamento.id})">Editar</button></td>
+            <td class="acao"><button onclick="deletarMedicamento(${medicamento.id})">Excluir</button></td>
+        `;
+        tabela.appendChild(row);
+    });
+}
+
+// CRUD Medicamentos
+async function salvarMedicamento(event) {
     event.preventDefault();
 
     const id = document.getElementById('idMedicamento').value;
-    const medicamento = {
+    const medicamento = obterDadosFormulario();
+
+    const url = id ? `${BASE_URL}/${id}` : `${BASE_URL}/salvar`;
+    const method = id ? 'PUT' : 'POST';
+
+    try {
+        await fetch(url, {
+            method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(medicamento)
+        });
+
+        fecharModal();
+        listarMedicamentos();
+        alert(id ? 'Medicamento atualizado com sucesso!' : 'Medicamento salvo com sucesso!');
+    } catch (error) {
+        console.error('Erro ao salvar:', error);
+    }
+}
+
+function obterDadosFormulario() {
+    return {
         nome: document.getElementById('nome').value,
         principioAtivo: document.getElementById('PrincipioAtivo').value,
         fabricante: document.getElementById('Fabricante').value
     };
-
-    let url = BASE_URL + '/salvar';
-    let method = 'POST';
-
-    if (id) {
-        url = `${BASE_URL}/${id}`;
-        method = 'PUT';
-    }
-
-    fetch(url, {
-        method: method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(medicamento)
-    })
-    .then(response => response.json())
-    .then(data => {
-        fecharModal();
-        then(() => {
-            fecharModal();
-            setTimeout(() => {
-            listarMedicamentos();
-        }, 300);
-    alert(id ? 'Medicamento atualizado com sucesso!' : 'Medicamento salvo com sucesso!');
-})
-    })
-    .catch(error => console.error('Erro:', error));
-});
-
-function editarMedicamento(id) {
-    fetch(`${BASE_URL}/${id}`)
-        .then(response => response.json())
-        .then(medicamento => {
-            document.getElementById('idMedicamento').value = medicamento.id;
-            document.getElementById('nome').value = medicamento.nome;
-            document.getElementById('PrincipioAtivo').value = medicamento.principioAtivo || '';
-            document.getElementById('Fabricante').value = medicamento.fabricante;
-
-            abrirModal();
-        })
-        .catch(error => console.error('Erro ao buscar medicamento:', error));
 }
 
-function deletarMedicamento(id) {
-    if (confirm('Tem certeza que deseja excluir este medicamento?')) {
-        fetch(`${BASE_URL}/${id}`, {
-            method: 'DELETE'
-        })
-        .then(() => {
-            listarMedicamentos();
-            alert('Medicamento excluído com sucesso!');
-        })
-        .catch(error => console.error('Erro ao excluir:', error));
+async function editarMedicamento(id) {
+    try {
+        const response = await fetch(`${BASE_URL}/${id}`);
+        const medicamento = await response.json();
+        preencherFormulario(medicamento);
+        abrirModal('Editar Medicamento');
+    } catch (error) {
+        console.error('Erro ao buscar medicamento:', error);
     }
 }
 
-document.getElementById('btnPesquisarMedicamento').addEventListener('click', function() {
-    const nome = document.getElementById('pesquisaMedicamento').value;
+async function deletarMedicamento(id) {
+    if (!confirm('Tem certeza que deseja excluir este medicamento?')) return;
 
-    fetch(`${BASE_URL}/filtro?nome=${encodeURIComponent(nome)}`)
-        .then(response => response.json())
-        .then(medicamentos => {
-            const sugestoes = document.getElementById('sugestoes');
-            sugestoes.innerHTML = '';
-            medicamentos.forEach(m => {
-                const li = document.createElement('li');
-                li.textContent = `${m.nome} - ${m.fabricante}`;
-                sugestoes.appendChild(li);
-            });
-        })
-        .catch(error => console.error('Erro ao filtrar:', error));
-});
+    try {
+        await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' });
+        listarMedicamentos();
+        alert('Medicamento excluído com sucesso!');
+    } catch (error) {
+        console.error('Erro ao excluir:', error);
+    }
+}
 
+// Formulário & Modal
+function preencherFormulario(medicamento) {
+    document.getElementById('idMedicamento').value = medicamento.id;
+    document.getElementById('nome').value = medicamento.nome;
+    document.getElementById('PrincipioAtivo').value = medicamento.principioAtivo || '';
+    document.getElementById('Fabricante').value = medicamento.fabricante;
+}
 
-function abrirModal() {
-    document.getElementById("modalMedicamentoTitle").textContent = "Adicionar Medicamento";
+function abrirModal(titulo = "Adicionar Medicamento") {
+    document.getElementById("modalMedicamentoTitle").textContent = titulo;
     document.getElementById("modalMedicamento").style.display = "flex";
 }
 
@@ -116,45 +121,63 @@ function fecharModal() {
     document.getElementById("formMedicamento").reset();
     document.getElementById("idMedicamento").value = "";
 
-
     const contatosContainer = document.getElementById("contatosContainer");
-    contatosContainer.innerHTML = '';
+    if (contatosContainer) contatosContainer.innerHTML = '';
 }
 
-window.addEventListener('click', function(event) {
-    let modal = document.getElementById("modalMedicamento");
-    if (event.target === modal) {
-        fecharModal();
+// Pesquisa
+async function pesquisarMedicamentos() {
+    const nome = document.getElementById('pesquisaMedicamento').value;
+
+    try {
+        const response = await fetch(`${BASE_URL}/filtro?nome=${encodeURIComponent(nome)}`);
+        const medicamentos = await response.json();
+        atualizarTabela(medicamentos);
+    } catch (error) {
+        console.error('Erro ao filtrar:', error);
     }
-});
-
-// SIDEBAR
-function abrirBar() {
-    document.getElementById('sidebar').classList.add('active');
 }
 
-function fecharBar() {
-    document.getElementById('sidebar').classList.remove('active');
+// Eventos
+function configurarEventos() {
+    document.getElementById('formMedicamento').addEventListener('submit', salvarMedicamento);
+
+    document.getElementById('btnPesquisarMedicamento').addEventListener('click', pesquisarMedicamentos);
+    adicionarEventoEnter('pesquisaMedicamento', pesquisarMedicamentos);
+
+    document.getElementById('btnPesquisarSidebar').addEventListener('click', pesquisarSidebar);
+    adicionarEventoEnter('pesquisaSidebar', pesquisarSidebar);
+
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById("modalMedicamento");
+        if (event.target === modal) {
+            fecharModal();
+        }
+    });
 }
 
-// Simula medicamentos vindos de uma API ou array local
-const medicamentos = [
-    { nome: 'Paracetamol' },
-    { nome: 'Ibuprofeno' },
-    { nome: 'Dipirona' },
-    { nome: 'Amoxicilina' },
-    { nome: 'Cetirizina' }
-];
+function adicionarEventoEnter(inputId, callback) {
+    const input = document.getElementById(inputId);
+    if (input) {
+        input.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                callback();
+            }
+        });
+    }
+}
 
-document.getElementById('btnPesquisarSidebar').addEventListener('click', () => {
+// Sidebar (simulação)
+function pesquisarSidebar() {
     const termo = document.getElementById('pesquisaSidebar').value.toLowerCase();
-    const resultados = medicamentos.filter(m => m.nome.toLowerCase().includes(termo));
-    exibirResultados(resultados);
-});
+    const resultados = medicamentosSimulados.filter(m => m.nome.toLowerCase().includes(termo));
+    exibirResultadosSidebar(resultados);
+}
 
-function exibirResultados(lista) {
+function exibirResultadosSidebar(lista) {
     const ul = document.getElementById('resultadosSidebar');
-    ul.innerHTML = ''; // Limpa os resultados anteriores
+    ul.innerHTML = '';
 
     if (lista.length === 0) {
         ul.innerHTML = '<li>Nenhum medicamento encontrado</li>';
@@ -168,12 +191,38 @@ function exibirResultados(lista) {
         const btnAdd = document.createElement('button');
         btnAdd.textContent = '+';
         btnAdd.title = 'Adicionar Medicamento';
-        btnAdd.addEventListener('click', () => {
-            alert(`Medicamento "${med.nome}" adicionado!`);
-            // Aqui você pode chamar sua função para adicionar no sistema
-        });
+        btnAdd.addEventListener('click', () => adicionarMedicamentoSimulado(med));
 
         li.appendChild(btnAdd);
         ul.appendChild(li);
     });
+}
+
+async function adicionarMedicamentoSimulado(medicamento) {
+    try {
+        await fetch(`${BASE_URL}/salvar`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                nome: medicamento.nome,
+                principioAtivo: medicamento.principioAtivo,
+                fabricante: medicamento.fabricante
+            })
+        });
+
+        alert(`"${medicamento.nome}" adicionado com sucesso!`);
+        listarMedicamentos();
+    } catch (error) {
+        console.error('Erro ao adicionar medicamento:', error);
+    }
+}
+
+// Sidebar Toggle
+function abrirBar() {
+    document.getElementById('sidebar').classList.add('active');
+    exibirResultadosSidebar(medicamentosSimulados);
+}
+
+function fecharBar() {
+    document.getElementById('sidebar').classList.remove('active');
 }

@@ -1,0 +1,502 @@
+[
+  {
+    "nome": "Ibuprofeno 250mg",
+    "principioAtivo": "Ibuprofeno",
+    "fabricante": "Sanofi"
+  },
+  {
+    "nome": "Dipirona 10mg",
+    "principioAtivo": "Dipirona",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Metformina 50mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Cetirizina 10mg",
+    "principioAtivo": "Cetirizina",
+    "fabricante": "Bayer"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 250mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Amoxicilina 300mg",
+    "principioAtivo": "Amoxicilina",
+    "fabricante": "Eurofarma"
+  },
+  {
+    "nome": "Paracetamol 400mg",
+    "principioAtivo": "Paracetamol",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Amoxicilina 20mg",
+    "principioAtivo": "Amoxicilina",
+    "fabricante": "Eurofarma"
+  },
+  {
+    "nome": "Ranitidina 200mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Ranitidina 50mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "Bayer"
+  },
+  {
+    "nome": "Amoxicilina 400mg",
+    "principioAtivo": "Amoxicilina",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Metformina 250mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Amoxicilina 50mg",
+    "principioAtivo": "Amoxicilina",
+    "fabricante": "Bayer"
+  },
+  {
+    "nome": "Cetirizina 100mg",
+    "principioAtivo": "Cetirizina",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Losartana 500mg",
+    "principioAtivo": "Losartana",
+    "fabricante": "Aché"
+  },
+  {
+    "nome": "Metformina 50mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Omeprazol 250mg",
+    "principioAtivo": "Omeprazol",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Amoxicilina 20mg",
+    "principioAtivo": "Amoxicilina",
+    "fabricante": "Ache"
+  },
+  {
+    "nome": "Omeprazol 200mg",
+    "principioAtivo": "Omeprazol",
+    "fabricante": "Eurofarma"
+  },
+  {
+    "nome": "Ranitidina 5mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "EMS"
+  },
+  {
+    "nome": "Omeprazol 20mg",
+    "principioAtivo": "Omeprazol",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 100mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Omeprazol 300mg",
+    "principioAtivo": "Omeprazol",
+    "fabricante": "Eurofarma"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 100mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Novartis"
+  },
+  {
+    "nome": "Omeprazol 20mg",
+    "principioAtivo": "Omeprazol",
+    "fabricante": "Novartis"
+  },
+  {
+    "nome": "Paracetamol 250mg",
+    "principioAtivo": "Paracetamol",
+    "fabricante": "Sanofi"
+  },
+  {
+    "nome": "Ibuprofeno 10mg",
+    "principioAtivo": "Ibuprofeno",
+    "fabricante": "Bayer"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 400mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Losartana 400mg",
+    "principioAtivo": "Losartana",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Ibuprofeno 5mg",
+    "principioAtivo": "Ibuprofeno",
+    "fabricante": "Novartis"
+  },
+  {
+    "nome": "Metformina 20mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Eurofarma"
+  },
+  {
+    "nome": "Omeprazol 5mg",
+    "principioAtivo": "Omeprazol",
+    "fabricante": "Novartis"
+  },
+  {
+    "nome": "Metformina 5mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Ibuprofeno 250mg",
+    "principioAtivo": "Ibuprofeno",
+    "fabricante": "Sanofi"
+  },
+  {
+    "nome": "Metformina 400mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Dipirona 10mg",
+    "principioAtivo": "Dipirona",
+    "fabricante": "Eurofarma"
+  },
+  {
+    "nome": "Cetirizina 50mg",
+    "principioAtivo": "Cetirizina",
+    "fabricante": "Novartis"
+  },
+  {
+    "nome": "Losartana 20mg",
+    "principioAtivo": "Losartana",
+    "fabricante": "Sanofi"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 10mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Sanofi"
+  },
+  {
+    "nome": "Omeprazol 400mg",
+    "principioAtivo": "Omeprazol",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Amoxicilina 400mg",
+    "principioAtivo": "Amoxicilina",
+    "fabricante": "Eurofarma"
+  },
+  {
+    "nome": "Ibuprofeno 500mg",
+    "principioAtivo": "Ibuprofeno",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 10mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Sanofi"
+  },
+  {
+    "nome": "Metformina 20mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Eurofarma"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 200mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Aché"
+  },
+  {
+    "nome": "Dipirona 100mg",
+    "principioAtivo": "Dipirona",
+    "fabricante": "Ache"
+  },
+  {
+    "nome": "Ranitidina 200mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "Novartis"
+  },
+  {
+    "nome": "Paracetamol 400mg",
+    "principioAtivo": "Paracetamol",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Amoxicilina 5mg",
+    "principioAtivo": "Amoxicilina",
+    "fabricante": "Sanofi"
+  },
+  {
+    "nome": "Amoxicilina 500mg",
+    "principioAtivo": "Amoxicilina",
+    "fabricante": "Ache"
+  },
+  {
+    "nome": "Dipirona 5mg",
+    "principioAtivo": "Dipirona",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Metformina 200mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Bayer"
+  },
+  {
+    "nome": "Amoxicilina 10mg",
+    "principioAtivo": "Amoxicilina",
+    "fabricante": "Novartis"
+  },
+  {
+    "nome": "Dipirona 200mg",
+    "principioAtivo": "Dipirona",
+    "fabricante": "Aché"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 400mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Bayer"
+  },
+  {
+    "nome": "Ibuprofeno 5mg",
+    "principioAtivo": "Ibuprofeno",
+    "fabricante": "Bayer"
+  },
+  {
+    "nome": "Paracetamol 100mg",
+    "principioAtivo": "Paracetamol",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 5mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Omeprazol 5mg",
+    "principioAtivo": "Omeprazol",
+    "fabricante": "Sanofi"
+  },
+  {
+    "nome": "Ibuprofeno 5mg",
+    "principioAtivo": "Ibuprofeno",
+    "fabricante": "Ache"
+  },
+  {
+    "nome": "Dipirona 200mg",
+    "principioAtivo": "Dipirona",
+    "fabricante": "Ache"
+  },
+  {
+    "nome": "Ranitidina 400mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Ranitidina 50mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "Novartis"
+  },
+  {
+    "nome": "Ibuprofeno 5mg",
+    "principioAtivo": "Ibuprofeno",
+    "fabricante": "EMS"
+  },
+  {
+    "nome": "Losartana 200mg",
+    "principioAtivo": "Losartana",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Dipirona 5mg",
+    "principioAtivo": "Dipirona",
+    "fabricante": "EMS"
+  },
+  {
+    "nome": "Ranitidina 500mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Ibuprofeno 400mg",
+    "principioAtivo": "Ibuprofeno",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Dipirona 300mg",
+    "principioAtivo": "Dipirona",
+    "fabricante": "Novartis"
+  },
+  {
+    "nome": "Losartana 400mg",
+    "principioAtivo": "Losartana",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Ranitidina 50mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Cetirizina 400mg",
+    "principioAtivo": "Cetirizina",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Metformina 10mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Bayer"
+  },
+  {
+    "nome": "Amoxicilina 200mg",
+    "principioAtivo": "Amoxicilina",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Ibuprofeno 50mg",
+    "principioAtivo": "Ibuprofeno",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Dipirona 5mg",
+    "principioAtivo": "Dipirona",
+    "fabricante": "EMS"
+  },
+  {
+    "nome": "Metformina 200mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Omeprazol 10mg",
+    "principioAtivo": "Omeprazol",
+    "fabricante": "EMS"
+  },
+  {
+    "nome": "Metformina 10mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Paracetamol 200mg",
+    "principioAtivo": "Paracetamol",
+    "fabricante": "Ache"
+  },
+  {
+    "nome": "Losartana 20mg",
+    "principioAtivo": "Losartana",
+    "fabricante": "EMS"
+  },
+  {
+    "nome": "Cetirizina 500mg",
+    "principioAtivo": "Cetirizina",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Dipirona 300mg",
+    "principioAtivo": "Dipirona",
+    "fabricante": "Aché"
+  },
+  {
+    "nome": "Dipirona 50mg",
+    "principioAtivo": "Dipirona",
+    "fabricante": "Medley"
+  },
+  {
+    "nome": "Ibuprofeno 10mg",
+    "principioAtivo": "Ibuprofeno",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Ranitidina 400mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "Aché"
+  },
+  {
+    "nome": "Metformina 400mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Ache"
+  },
+  {
+    "nome": "Ranitidina 10mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 200mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Bayer"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 50mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Eurofarma"
+  },
+  {
+    "nome": "Ranitidina 50mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "Bayer"
+  },
+  {
+    "nome": "Losartana 10mg",
+    "principioAtivo": "Losartana",
+    "fabricante": "Aché"
+  },
+  {
+    "nome": "Metformina 50mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Losartana 500mg",
+    "principioAtivo": "Losartana",
+    "fabricante": "EMS"
+  },
+  {
+    "nome": "Paracetamol 10mg",
+    "principioAtivo": "Paracetamol",
+    "fabricante": "Neo Química"
+  },
+  {
+    "nome": "Ranitidina 400mg",
+    "principioAtivo": "Ranitidina",
+    "fabricante": "Eurofarma"
+  },
+  {
+    "nome": "Cloridrato de Sertralina 300mg",
+    "principioAtivo": "Cloridrato de Sertralina",
+    "fabricante": "Pfizer"
+  },
+  {
+    "nome": "Paracetamol 50mg",
+    "principioAtivo": "Paracetamol",
+    "fabricante": "Sanofi"
+  },
+  {
+    "nome": "Metformina 500mg",
+    "principioAtivo": "Metformina",
+    "fabricante": "EMS"
+  },
+  {
+    "nome": "Amoxicilina 250mg",
+    "principioAtivo": "Amoxicilina",
+    "fabricante": "Pfizer"
+  }
+]
